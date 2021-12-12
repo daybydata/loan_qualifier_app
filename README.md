@@ -1,2 +1,2 @@
 # Loan_Qualifier_App
-A command line loan qualifier app...
+This is a simple command line loan qualifier app.
