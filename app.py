@@ -38,6 +38,17 @@ def load_bank_data():
 
     return load_csv(csvpath)
 
+def save_csv(qualifying_loans):
+    """Ask for a file path to save a csv file of the loan results.
+
+    Returns:
+        Writes the loan data to a csv file specified by the user.
+    """
+    #Request a file path and name for the csv file.
+    outputfile = questionary.text("Enter a file path to save your loans (.csv):").ask()
+    outputfile = Path(outputfile)
+    return write_csv(qualifying_loans, outputfile)
+
 
 def get_applicant_info():
     """Prompt dialog to get the applicant's financial information.
@@ -108,10 +119,9 @@ def save_qualifying_loans(qualifying_loans):
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-    # @TODO: Complete the usability dialog for savings the CSV Files.
     #If the user does not qualify for any loans, notify the uwer and exit the program.
     if len(qualifying_loans) == 0:
-        sys.exit(f"So Sorry! You do not qualify for an loans in our program yet.")
+        sys.exit(f"So Sorry! You do not qualify for an loans in our program at this time.")
     else:
         print(f"Congratulations! You qualify for {len(qualifiying_loans)} loans.")
 
@@ -120,15 +130,7 @@ def save_qualifying_loans(qualifying_loans):
     if answer != 'yes':
         sys.exit(f"Okay. Thank you for trying this loan qualifier app. Goodbye!")
     else:
-    #If the user wants to save result, request a file path and name for the csv file.
-        outputfile = questionary.text("Great! Enter a file path to save your loans (.csv):").ask()
-    
-    #Save the results to a csv file.
-    return write_csv(outputfile)
-
-
-
-        
+        return save_csv(qualifying_loans)
 
 
 def run():
