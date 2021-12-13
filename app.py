@@ -11,7 +11,7 @@ import fire
 import questionary
 from pathlib import Path
 
-from qualifier.utils.fileio import load_csv
+from qualifier.utils.fileio import load_csv, save_csv
 
 from qualifier.utils.calculators import (
     calculate_monthly_debt_ratio,
@@ -37,18 +37,6 @@ def load_bank_data():
         sys.exit(f"Oops! Can't find this path: {csvpath}")
 
     return load_csv(csvpath)
-
-def save_csv(qualifying_loans):
-    """Ask for a file path to save a csv file of the loan results.
-
-    Returns:
-        Writes the loan data to a csv file specified by the user.
-    """
-    #Request a file path and name for the csv file.
-    outputfile = questionary.text("Enter a file path to save your loans (.csv):").ask()
-    outputfile = Path(outputfile)
-    return write_csv(qualifying_loans, outputfile)
-
 
 def get_applicant_info():
     """Prompt dialog to get the applicant's financial information.
@@ -123,14 +111,20 @@ def save_qualifying_loans(qualifying_loans):
     if len(qualifying_loans) == 0:
         sys.exit(f"So Sorry! You do not qualify for an loans in our program at this time.")
     else:
-        print(f"Congratulations! You qualify for {len(qualifiying_loans)} loans.")
+        print(f"Congratulations! You qualify for {len(qualifying_loans)} loans.")
 
     #Ask the user if they would like to save the results and provide an option to opt out.
-    answer = questionary.text("Would you like to save your results? (yer/no)").ask()
+    answer = questionary.text("Would you like to save your results? (yes/no)").ask()
     if answer != 'yes':
         sys.exit(f"Okay. Thank you for trying this loan qualifier app. Goodbye!")
     else:
-        return save_csv(qualifying_loans)
+    #Request a file path and name for the csv file.
+        outputfile = questionary.text("Enter a file path to save your loans (.csv):").ask()
+        outputfile = Path(outputfile)
+    
+    header = ["Lender","Max Loan Amount","Max LTV","Max DTI","Min Credit Score","Interest Rate"]
+    
+    return save_csv(outputfile, qualifying_loans,header)
 
 
 def run():
