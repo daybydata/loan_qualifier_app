@@ -1,0 +1,50 @@
+   23  ls
+   24  cd FinTech-Workspace/
+   25  ls
+   26  cd Module_2_Challenge
+   27  ls
+   28  git status
+   29  cd loan_qualifier_app/
+   30  ls
+   31  git status
+   32  git push
+   33  git push
+   34  git status
+   35  git add app.py
+   36  git commit -m "First draft of the save qualifying loans function; not tested."
+   37  git status
+   38  git push
+   39  git status
+   40  git add app.py
+   41  git commit -m "Added first draft of save_csv function and reorganized the code."
+   42  git push
+   43  oython3 app.py
+   44  python3 app.py
+   45  ls
+   46  python app.py
+   47  python app.py
+   48  python app.py
+   49  python app.py
+   50  python app.py
+   51  python app.py
+   52  python app.py
+   53  python app.py
+   54  python app.py
+   55  python app.py
+   56  python app.py
+   57  python app.py
+   58  python app.py
+   59  python app.py
+   60  git status
+   61  git add app.py
+   62  git add qualifier/utils/fileio.py
+   63  git status
+   64  git commit -m "Debugged save_csv and moved to fileio.py"
+   65  git push
+   66  git status
+   67  git add README.md
+   68  git add images/
+   69  git status
+   70  git commit -m "Adding README file and image folder."
+   71  ls
+   72  history 50 > terminal_history.txt
