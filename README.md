@@ -1,29 +1,42 @@
 # Loan_Qualifier_App
-This is a simple command line loan qualifier app.
-
-# Project Title
-
-Just after the title, introduce your project by describing attractively what the project is about and what is the main problem that inspires you to create this project or what is the main contribution for the potential user of your project.
+This is a simple command line loan qualifier app that streamlines and automates the process of finding loans for potential borrowers. This app collects borrower and loan attributes, pulls in data from a daily rate sheet and matches the user to loans that he/she would qualify for. If there are any matching loan programs, the user is also given the option to save the list of loans in a csv file after entering a path and name for the file.
 
 ---
 
 ## Technologies
 
-Describe the technologies required to use your project such as programming languages, libraries, frameworks, and operating systems. Be sure to include the specific versions of any critical dependencies that you have used in the stable version of your project.
+This program was written in python 3.7. It uses the following libraries:
+
+* [fire](https://github.com/google/python-fire) - For the command line interface, help page, and entrypoint.
+
+* [questionary](https://github.com/tmbo/questionary) - For interactive user prompts and dialogs
 
 ---
 
 ## Installation Guide
 
-In this section, you should include detailed installation notes containing code blocks and screenshots.
+Use the following code to install the packages required for the app.
 
-pip install fire
-pip install questionary
+```python
+  pip install fire
+  pip install questionary
+```
+Then clone the repository and navigate to the directory where you cloned the repository to run the program.
+
 ---
 
 ## Usage
 
-This section should include screenshots, code blocks, or animations explaining how to use your project.
+Run the **app.py** with:
+
+```python
+python app.py
+```
+The following prompts will display successivly to collect the user input.
+
+![Loan Qualifier Prompts](Images/loan_qalifier_screenshot.png)
+
+Final results are output to a csv file.
 
 ---
 
