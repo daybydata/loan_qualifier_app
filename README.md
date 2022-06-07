@@ -34,7 +34,7 @@ python app.py
 ```
 The following prompts will display successivly to collect the user input.
 
-![Loan Qualifier Prompts](Images/loan_qalifier_screenshot.png)
+![loan_qualifier_screenshot](https://user-images.githubusercontent.com/94941017/172275589-f2dbdbf5-ef18-4045-9d20-781e3bb1a11c.png)
 
 Final results are output to a csv file.
 
